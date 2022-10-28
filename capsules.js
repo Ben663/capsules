@@ -1,3 +1,20 @@
+// build the table
+const table = document.querySelector('.table');
+const h1= document.querySelector('h1')
+let allUsersData= [];
+
+const paintRow = (arrOfData) => {
+    const row = document.createElement('div');
+    row.classList.add('row');
+    arrOfData.forEach(element => {
+        const cell = document.createElement('div');
+        cell.classList.add('cell');
+        cell.textContent = element;
+        row.appendChild(cell);
+    });
+    table.appendChild(row);
+};
+
 // fetch the data
 const fetchData = async (url) => {
     try {
@@ -19,6 +36,9 @@ async function getData() {
     let dataFileOne = await (fetchData('https://capsules7.herokuapp.com/api/group/one'));
     let dataFileTwo = await (fetchData('https://capsules7.herokuapp.com/api/group/two'));
     const meragdData = dataFileOne.concat(dataFileTwo);
+    meragdData.sort((a, b) => a.id - b.id);
+    //console.log(meragdData);
+
     // console.log(meragdData);
 
     const people = [];
@@ -30,7 +50,7 @@ async function getData() {
     // log data
     const data = await Promise.all(people)
     //console.log(data);
-    structurChar(meragdData, people);
+    structurChar(meragdData);
 };
 getData();
 
@@ -40,7 +60,8 @@ getData();
 const structurChar = (arr, arr1) => {
     return arr.map((char, index) => {
         const newChar = { id: char.id, firstName: char.firstName, lastName: char.lastName, classOfALL: {} };
-        console.log(arr1[index]);
+        //console.log(arr1[index]);
+        console.log(char);
     });
 
 };
