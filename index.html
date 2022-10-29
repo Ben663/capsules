@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Capsules</title>
-    <link rel="stylesheet" href="normalize.css">
+    <link rel="stylesheet" href="/normalize.css">
+    <link rel="stylesheet" href="/style.css">
     <!-- <link rel="stylesheet" href=""> -->
     <style>
         .table {
@@ -13,17 +15,49 @@
             flex-direction: column;
             text-align: center;
         }
+
         .row {
             display: flex;
             justify-content: space-between;
         }
+
         .cell {
             width: 15%;
         }
     </style>
     <script type="module" src="/capsules.js" defer></script>
 </head>
+
 <body>
-    <div class="table"></div>
+    <div class="header">
+        <h1 id="logo">My Capsule</h1>
+        <input type="search" id="search" placeholder="search..." />
+        <select name="searchBy" id="searchBy">
+            <option value="everything">Everything</option>
+            <option value="id">ID</option>
+            <option value="firstName">FirstName</option>
+            <option value="lastName">LastName</option>
+            <option value="age">Age</option>
+            <option value="capsule">Capsule</option>
+            <option value="hobby">Hobby</option>
+            <option value="city">City</option>
+            <option value="gender">Gender</option>
+        </select>
+        <button class="resetBtn btn">reset</button>
+    </div>
+    <div class="table">
+        <div class="row">
+            <div class="cell theader" id="id">id</div>
+            <div class="cell theader" id="firstName">first name</div>
+            <div class="cell theader" id="lastName">last name</div>
+            <div class="cell theader" id="age">age</div>
+            <div class="cell theader" id="capsule">capsule</div>
+            <div class="cell theader" id="city">city</div>
+            <div class="cell theader" id="hobby">hobby</div>
+            <div class="cell theader" id="gender">gender</div>
+            <div class="cell theader" id="buttons"></div>
+        </div>
+    </div>
 </body>
+
 </html>

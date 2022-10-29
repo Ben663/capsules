@@ -1,6 +1,7 @@
 // build the table
 const table = document.querySelector('.table');
-const titles = ['id','firstName','lastName','age','cupsul','hobby','city','gender'];
+//const titles = ['Id','FirstName','LastName','Age','Capsule','City','Hobby','Gender'];
+const titles = [];
 let allUsersData = [];
 
 // fetch the data
@@ -24,7 +25,7 @@ async function getData() {
     let dataFileOne = await (fetchData('https://capsules7.herokuapp.com/api/group/one'));
     let dataFileTwo = await (fetchData('https://capsules7.herokuapp.com/api/group/two'));
     const meragdData = dataFileOne.concat(dataFileTwo);
-    //meragdData.sort((a, b) => a.id - b.id);
+    meragdData.sort((a, b) => a.id - b.id);
     //console.log(meragdData);
     const people = [];
     for (let index = 0; index < meragdData.length; index++) {
@@ -84,7 +85,7 @@ const setSpinner = (Boolean) => {
 
 const paintPage = async () => {
     let isloading = true;
-    paintHead('all class');
+    paintHead('');
     paintRow(titles);
     setSpinner(isloading);
 
@@ -95,8 +96,8 @@ const paintPage = async () => {
             char.lastName,
             char.age,
             char.capsule,
-            char.hobby,
             char.city,
+            char.hobby,
             char.gender
         ];
         paintRow(newArr);
