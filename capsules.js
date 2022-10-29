@@ -1,8 +1,7 @@
 // build the table
 const table = document.querySelector('.table');
-//const titles = ['Id','FirstName','LastName','Age','Capsule','City','Hobby','Gender'];
-const titles = [];
-let allUsersData = [];
+const titles = ['Id','FirstName','LastName','Age','Capsule','City','Hobby','Gender'];
+//let allUsersData = [];
 
 // fetch the data
 const fetchData = async (url) => {
@@ -51,7 +50,6 @@ const structurChar = (arr) => {
         };
     });
 };
-//getData();
 
 // display the data
 const paintHead = (text) => {
@@ -108,4 +106,3 @@ const paintPage = async () => {
 paintPage();
 
 
-// style html
